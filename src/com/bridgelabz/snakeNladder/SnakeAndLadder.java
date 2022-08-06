@@ -11,9 +11,11 @@ public class SnakeAndLadder {
 		int dice = (int)(Math.random()*10)%6 + 1; 
 		System.out.println("Dice roll result is: " +dice);
 		
-		/*UC3
-		 * Checking options for Player1
+		/*UC4
+		 * Repeating till Player1 gets 100
 		 * */
+		
+		while (position < 100) {
 		
 		int option = (int)(Math.random() * 10 ) % 3;
 		System.out.println("Option for Player1: "+option);
@@ -25,15 +27,16 @@ public class SnakeAndLadder {
 		case 2:
 			System.out.println("Snake");
 			position -= dice;
-			if(position<0) {
-				position = 0;
-			}
 			break;
 		default:
 			System.out.println("No Play");
 		}
+		if(position<0) {
+			position = 0;
+		}
 		System.out.println("Position of Player1: " + position);
-
+		}
+		
 	}
 
 }
