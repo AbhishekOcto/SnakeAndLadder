@@ -8,15 +8,10 @@ public class SnakeAndLadder {
 		int position = 0;
 		System.out.println("Player1's position: " +position);
 		
+		while (position < 100) {
 		int dice = (int)(Math.random()*10)%6 + 1; 
 		System.out.println("Dice roll result is: " +dice);
-		
-		/*UC4
-		 * Repeating till Player1 gets 100
-		 * */
-		
-		while (position < 100) {
-		
+		           
 		int option = (int)(Math.random() * 10 ) % 3;
 		System.out.println("Option for Player1: "+option);
 		switch (option) {
@@ -31,8 +26,16 @@ public class SnakeAndLadder {
 		default:
 			System.out.println("No Play");
 		}
-		if(position<0) {
+		
+		/*UC5
+		 * Ensure exact winning position of 100
+		 * */
+		
+		if(position < 0) {
 			position = 0;
+		}
+		else if(position > 100 ) {
+			position -= dice;
 		}
 		System.out.println("Position of Player1: " + position);
 		}
